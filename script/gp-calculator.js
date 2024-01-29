@@ -46,30 +46,27 @@ function addStudentEntry(){
   let courseName = document.querySelector('.js-course-code').value;
   const grade = document.querySelector('.js-grade').value;
   const creditUnit = document.querySelector('.js-credit-unit').value;
-
   let getgrade = 0;
-  if(grade ==='A'){
-    getgrade = 5;
-  } else if (grade === 'B'){
-    getgrade = 4;
-  } else if (grade === 'C'){
-    getgrade = 3;
-  } else if(grade ==='D'){
-    getgrade = 2;
-  } else if (grade === 'E'){
-    getgrade = 1;
-  } else if (grade === 'F'){
-    getgrade = 0;
-  } else{
-    getgrade = 0;
-  }
+ 
+  if (creditUnit != 'Credit Unit'){
+    if(grade ==='A'){
+      getgrade = 5;
+    } else if (grade === 'B'){
+      getgrade = 4;
+    } else if (grade === 'C'){
+      getgrade = 3;
+    } else if(grade ==='D'){
+      getgrade = 2;
+    } else if (grade === 'E'){
+      getgrade = 1;
+    } else if (grade === 'F'){
+      getgrade = 0;
+    } else{
+      getgrade = 0;
+    }
 
-  if(creditUnit === '0'){
-    alert('credit unit not specified')
-  }
-
-  const gradepoint = getgrade * creditUnit
-  studentEntry.push({
+    const gradepoint = getgrade * creditUnit
+    studentEntry.push({
     courseName,
     grade,
     creditUnit,
@@ -79,12 +76,14 @@ function addStudentEntry(){
   document.querySelector('.js-grade').value = 'Grade';
   document.querySelector('.js-credit-unit').value = 'Credit Unit';
   addCourse();
-  console.log(studentEntry)
+  }
+  else if(creditUnit === 'Credit Unit'){
+    alert('Credit unit not specified. \n\nSelect Credit Unit');  
+  }
+
 }
 
 function getgp(){
   document.querySelector('.js-gpa')
-    .innerHTML = `Grade point average(GPA): ${gradePointAv.toFixed(2)}`;
-   
+    .innerHTML = `Grade point average(GPA): ${gradePointAv.toFixed(2)}`;   
 }
-
