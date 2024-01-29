@@ -65,8 +65,8 @@ function addStudentEntry(){
   }
 
   if(creditUnit === 'Credit Unit'){
-    alert('credit unit not specified.)
-    getgrade = 0;
+    alert('credit unit not specified');
+    break;
   }
 
   const gradepoint = getgrade * creditUnit
